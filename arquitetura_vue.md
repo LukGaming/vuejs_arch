@@ -41,6 +41,15 @@ Para iniciar uma feature Vue.js em um projeto Java/JSP, crie um arquivo `.jsp` d
 
 ```
 
+flowchart TD
+  A[Component Vue] -- dispatch action --> B[Vuex Actions]
+  B -- commit mutation --> C[Vuex Mutations]
+  C -- update --> D[Vuex State]
+  D -- getter --> E[Vuex Getters]
+  E -- provide data --> A
+  A -- call service --> F[Service/API]
+  F -- retorna dados --> B
+
 ---
 
 
