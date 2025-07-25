@@ -1,8 +1,19 @@
-
 # Arquitetura Vue.js
 
 Este documento descreve uma arquitetura padrão para projetos utilizando Vue.js, com foco em integração em aplicações Java/JSP.
 
+## Diagrama do fluxo entre Component Vue e Vuex Store
+
+```mermaid
+flowchart TD
+  A[Component Vue] -- dispatch action --> B[Vuex Actions]
+  B -- commit mutation --> C[Vuex Mutations]
+  C -- update --> D[Vuex State]
+  D -- getter --> E[Vuex Getters]
+  E -- provide data --> A
+  A -- call service --> F[Service/API]
+  F -- retorna dados --> B
+```
 ## 1. Integração Vue.js em projetos JSP
 
 Para iniciar uma feature Vue.js em um projeto Java/JSP, crie um arquivo `.jsp` dedicado para ser o bootstrap da aplicação Vue. Exemplo:
